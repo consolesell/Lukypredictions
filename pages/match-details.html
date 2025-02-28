@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Details - LuCky DaIly Prediction</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="icon" href="../assets/icons/favicon.ico">
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
+</head>
+<body>
+    <header>
+        <div class="app-bar">
+            <button class="back-button" onclick="history.back()">
+                <span>←</span>
+            </button>
+            <h1 id="league-name">League Name</h1>
+            <div class="theme-toggle">
+                <span class="light-icon">☀️</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <span class="dark-icon">🌙</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="match-details">
+        <section class="match-header">
+            <div id="match-time">March 1, 2025 - 15:00</div>
+            <div id="match-status">Upcoming</div>
+        </section>
+
+        <section class="teams-container">
+            <div class="team home-team">
+                <img id="home-logo" src="../assets/images/teams/placeholder.png" alt="Home Team">
+                <h3 id="home-name">Home Team</h3>
+            </div>
+            <div class="vs-indicator">VS</div>
+            <div class="team away-team">
+                <img id="away-logo" src="../assets/images/teams/placeholder.png" alt="Away Team">
+                <h3 id="away-name">Away Team</h3>
+            </div>
+        </section>
+
+        <section class="predictions-container">
+            <h2>Predictions & Tips</h2>
+            <div class="prediction-cards" id="prediction-cards">
+                <!-- Prediction cards will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section class="reasoning-container">
+            <h2>Prediction Analysis</h2>
+            <div class="reasoning-content" id="reasoning-content">
+                <!-- Reasoning content will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/data-service.js"></script>
+    <script src="../js/ui-controller.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script>
+        // Get match ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const matchId = urlParams.get('id');
+        
+        // Load match details based on ID
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMatchDetails(matchId);
+        });
+    </script>
+</body>
+</html>
