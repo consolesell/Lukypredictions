@@ -1,0 +1,453 @@
+/* Base styles */
+:root {
+    --primary-color: #1e88e5;
+    --secondary-color: #4caf50;
+    --background-color: #f5f5f5;
+    --card-bg-color: #ffffff;
+    --text-color: #212121;
+    --text-secondary: #757575;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --accent-color: #ff9800;
+    --success-color: #4caf50;
+    --error-color: #f44336;
+    --font-main: 'Roboto', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.app-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+}
+
+.header-logo {
+    height: 40px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter-tabs {
+    display: flex;
+    background-color: white;
+    margin: 0 auto;
+    max-width: 600px;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    background: none;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+/* Splash Screen */
+.splash-screen {
+    background: linear-gradient(135deg, #1e88e5, #1565c0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.splash-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.logo-container {
+    margin-bottom: 2rem;
+}
+
+.logo.animated {
+    animation: pulse 2s infinite;
+}
+
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.football-spinner {
+    width: 50px;
+    height: 50px;
+    background-image: url('../assets/images/football.png');
+    background-size: contain;
+    animation: spin 1.5s linear infinite;
+    margin-bottom: 1rem;
+}
+
+/* Featured Banner */
+.featured-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('../assets/images/backgrounds/stadium.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.featured-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Match Listings */
+.matches-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.league-section {
+    margin-bottom: 2rem;
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.league-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.league-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+}
+
+.match-card {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s;
+    color: var(--text-color);
+}
+
+.match-card:last-child {
+    border-bottom: none;
+}
+
+.match-card:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.match-time {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.match-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.team-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+}
+
+.vs {
+    margin: 0 1rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+}
+
+/* Match Details Page */
+.match-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.match-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#match-time {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+#match-status {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.teams-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.team {
+    text-align: center;
+    flex: 1;
+}
+
+.team img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0.5rem;
+}
+
+.vs-indicator {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+    margin: 0 1rem;
+}
+
+.predictions-container, .reasoning-container {
+    margin-bottom: 2rem;
+}
+
+.prediction-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.prediction-card {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    text-align: center;
+}
+
+.prediction-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: var(--accent-color);
+}
+
+.confidence {
+    color: gold;
+    margin-bottom: 0.5rem;
+}
+
+.odds {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.reasoning-card {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* Utilities & Animations */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.no-matches {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.error-message {
+    text-align: center;
+    padding: 2rem;
+    color: var(--error-color);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Theme toggle switch */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.light-icon, .dark-icon {
+    margin: 0 0.5rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .prediction-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .teams-container {
+        flex-direction: column;
+    }
+    
+    .team {
+        margin: 1rem 0;
+    }
+    
+    .vs-indicator {
+        margin: 0.5rem 0;
+    }
+}
